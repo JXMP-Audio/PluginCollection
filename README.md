@@ -21,6 +21,22 @@ Already cloned without submodules:
 git submodule update --init
 ```
 
+## Building plugins (HISE)
+
+The plugins are HISE projects. Every plugin's `build.sh` uses the local HISE in `HISE/` (git-ignored):
+
+```sh
+./setup-hise.sh [path/to/HISE.4.1.0.debian.x64.zip]   # binary + 4.1.0 source + SDK + patches
+cd TR808 && ./build.sh standalone                       # or: vst3, all
+```
+
+`hise-patches/` holds our changes to HISE. The patch `0001-resizable-frontend.patch` lets the
+plugin and standalone windows be resized freely: the interface keeps its aspect ratio, scales to
+the window, and remembers the size. Re-run `./setup-hise.sh` after adding a patch. It skips patches
+that are already applied.
+
+In the HISE editor, set **File → Settings → Compiler → HISE Path** to `HISE/source`.
+
 ## Keeping plugins up to date
 
 Every submodule tracks the `main` branch of its repository (`branch = main` in `.gitmodules`).
