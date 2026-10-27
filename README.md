@@ -9,6 +9,25 @@ repository and is included here as a git submodule, always pointing at its lates
 | --- | --- | --- | --- |
 | [TR808](TR808/) | Instrument (HISE) | TR-808 Rhythm Composer recreation (JX-808): original panel, DAW sync, MIDI programming and drag & drop, preset cartridges, 808-bass pitch mode. | [JXMP-Audio/TR808](https://github.com/JXMP-Audio/TR808) |
 
+## What is in this folder
+
+| Path | In git | What it is |
+|---|---|---|
+| `TR808/` | submodule | the TR808 plugin repository ([its README](TR808/README.md)) |
+| `hise-patches/` | yes | our patches to HISE 4.1.0, applied by `setup-hise.sh` |
+| `setup-hise.sh` | yes | downloads / unpacks HISE into `HISE/` and applies the patches |
+| `build-portable.sh` | yes | compiles an exported plugin in a Fedora 43 container (binary for older glibc) |
+| `update-plugins.sh` | yes | bumps every submodule to the newest commit of its `main` |
+| `CLAUDE.md` | yes | working rules for this repository |
+| `HISE/` | no (ignored) | local HISE: `HISE Standalone` (export tool, 40 MB) and `source/` (HISE + JUCE source with the patches, needed to compile plugins). Recreate with `./setup-hise.sh` |
+| `<Plugin>/build/` | no (ignored) | that plugin's build output, see its README |
+
+Inside a HISE project HISE also creates empty standard folders (`AudioFiles`, `Documentation`,
+`Expansions`, `MidiFiles`, `Presets`, `SampleMaps`, `Samples`) and `Binaries/`, `PooledResources/`
+every time it loads or exports the project. They aren't in git and can be ignored.
+
+Planned: the project website in `web/`.
+
 ## Getting the code
 
 ```sh
@@ -30,9 +49,7 @@ The plugins are HISE projects. Every plugin's `build.sh` uses the local HISE in 
 cd TR808 && ./build.sh standalone                       # or: vst3, all
 ```
 
-`hise-patches/` holds our changes to HISE. The patch `0001-resizable-frontend.patch` lets the
-plugin and standalone windows be resized freely: the interface keeps its aspect ratio, scales to
-the window, and remembers the size. The patches:
+`hise-patches/` holds our changes to HISE:
 
 | Patch | What it does |
 |---|---|
