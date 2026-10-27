@@ -3,7 +3,7 @@
 # also runs on systems with an older glibc than the build machine (e.g. Fedora 44 host vs the
 # Arch dev container). The project must be exported first: EXPORT_ONLY=1 ./build.sh vst3
 #
-#   ./build-portable.sh TR808 VST3        -> TR808/Binaries-VST3-portable/.../build/TR808.vst3
+#   ./build-portable.sh TR808 VST3        -> TR808/build/VST3-portable/.../build/TR808.vst3
 #
 # Runs on the host (or anywhere with podman). Override the image with IMAGE=...
 set -euo pipefail
@@ -12,8 +12,8 @@ ROOT="$(pwd)"
 PLUGIN="${1:?plugin folder, e.g. TR808}"
 TARGET="${2:-VST3}"
 IMAGE="${IMAGE:-quay.io/fedora/fedora:43}"
-SRC="$PLUGIN/Binaries-$TARGET"
-DEST="$PLUGIN/Binaries-$TARGET-portable"
+SRC="$PLUGIN/build/$TARGET"
+DEST="$PLUGIN/build/$TARGET-portable"
 
 [ -f "$SRC/Builds/LinuxMakefile/Makefile" ] || { echo "export $PLUGIN first (EXPORT_ONLY=1 ./build.sh)" >&2; exit 1; }
 rsync -r -c --delete --exclude /Builds/LinuxMakefile/build "$SRC/" "$DEST/"
