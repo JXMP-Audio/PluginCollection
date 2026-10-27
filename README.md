@@ -7,7 +7,7 @@ repository and is included here as a git submodule, always pointing at its lates
 
 | Plugin | Type | Description | Repository |
 | --- | --- | --- | --- |
-| [TR808](TR808/) | Instrument (HISE) | Roland TR-808 Rhythm Composer recreation with MIDI drum programming and an 808-bass pitch mode. | [JXMP-Audio/TR808](https://github.com/JXMP-Audio/TR808) |
+| [TR808](TR808/) | Instrument (HISE) | TR-808 Rhythm Composer recreation (JX-808): original panel, DAW sync, MIDI programming and drag & drop, preset cartridges, 808-bass pitch mode. | [JXMP-Audio/TR808](https://github.com/JXMP-Audio/TR808) |
 
 ## Getting the code
 
