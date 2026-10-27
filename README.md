@@ -18,6 +18,7 @@ repository and is included here as a git submodule, always pointing at its lates
 | `setup-hise.sh` | yes | downloads / unpacks HISE into `HISE/` and applies the patches |
 | `build-portable.sh` | yes | compiles an exported plugin in a Fedora 43 container (binary for older glibc) |
 | `update-plugins.sh` | yes | bumps every submodule to the newest commit of its `main` |
+| `web/` | yes | the JXMP Audio website: `index.html` (one page, CZ / EN) and the logo. Plugin cards are the `PLUGINS` list in the script; TR808's picture comes from `TR808/docs/screenshots/` on GitHub |
 | `CLAUDE.md` | yes | working rules for this repository |
 | `HISE/` | no (ignored) | local HISE: `HISE Standalone` (export tool, 40 MB) and `source/` (HISE + JUCE source with the patches, needed to compile plugins). Recreate with `./setup-hise.sh` |
 | `<Plugin>/build/` | no (ignored) | that plugin's build output, see its README |
@@ -25,8 +26,6 @@ repository and is included here as a git submodule, always pointing at its lates
 Inside a HISE project HISE also creates empty standard folders (`AudioFiles`, `Documentation`,
 `Expansions`, `MidiFiles`, `Presets`, `SampleMaps`, `Samples`) and `Binaries/`, `PooledResources/`
 every time it loads or exports the project. They aren't in git and can be ignored.
-
-Planned: the project website in `web/`.
 
 ## Getting the code
 

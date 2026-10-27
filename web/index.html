@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JXMP Audio – Plugin Collection</title>
+<meta name="description" content="JXMP Audio: audio plugins for musicians and producers. TR808, a TR-808 Rhythm Composer recreation as VST3 and standalone for Windows and Linux.">
+<link rel="icon" href="jxmp-audio-logo-warm.png">
+<meta property="og:title" content="JXMP Audio – Plugin Collection">
+<meta property="og:description" content="Audio plugins for musicians and producers.">
+<meta property="og:image" content="https://raw.githubusercontent.com/JXMP-Audio/TR808/main/docs/screenshots/front-panel.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root{--bg:#efe9db;--panel:#f7f2e6;--ink:#26231e;--muted:#6a6355;--red:#d8372a;--orange:#ee7b1f;--yellow:#f2c230;--cream:#f6efdc;--line:#26231e;--screen:#1d1b18;--led:#ff5a3c;
+--head:"Space Grotesk",system-ui,sans-serif;--mono:"Space Mono","Courier New",monospace;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1916;--panel:#26231f;--ink:#f1e9d4;--muted:#a79f8b;--line:#0c0b09;--screen:#0e0d0b}}
+:root[data-theme="dark"]{--bg:#1b1916;--panel:#26231f;--ink:#f1e9d4;--muted:#a79f8b;--line:#0c0b09;--screen:#0e0d0b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--head);line-height:1.65}
+a{color:inherit;text-decoration:none}
+.stripes{display:flex;height:6px}.stripes i{flex:1}
+.stripes i:nth-child(1){background:var(--red)}.stripes i:nth-child(2){background:var(--orange)}.stripes i:nth-child(3){background:var(--yellow)}.stripes i:nth-child(4){background:var(--cream)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:2px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:12px 5vw;gap:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.2rem;letter-spacing:.08em}
+.logo img{height:46px;width:46px;border-radius:50%;display:block}
+.logo b{color:var(--red)}
+.right{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+nav a{margin-right:18px;font-family:var(--mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;border-bottom:2px solid transparent}
+nav a:hover{border-color:var(--orange)}
+.lang{display:flex;border:2px solid var(--line);border-radius:6px;overflow:hidden}
+.lang button{font-family:var(--mono);font-weight:700;font-size:.75rem;padding:5px 11px;border:0;background:transparent;color:var(--ink);cursor:pointer}
+.lang button.act{background:var(--red);color:#fff}
+.hero{padding:11vh 5vw 8vh;text-align:center}
+.led{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.led::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--led);box-shadow:0 0 8px var(--led)}
+.hero h1{font-size:clamp(2.3rem,7vw,4.6rem);line-height:1.05;margin:20px 0;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero p{max-width:540px;margin:0 auto 30px;color:var(--muted)}
+.btn{display:inline-block;padding:13px 26px;border-radius:8px;background:var(--red);color:#fff;font-family:var(--mono);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.8rem;border:2px solid var(--line);box-shadow:0 4px 0 var(--line);transition:transform .08s,box-shadow .08s}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--line)}
+section{padding:7vh 5vw;max-width:1180px;margin:0 auto}
+h2{font-size:clamp(1.6rem,4vw,2.3rem);margin:0 0 6px;display:flex;align-items:center;gap:16px}
+h2::after{content:"";flex:1;height:6px;background:linear-gradient(90deg,var(--red) 25%,var(--orange) 25% 50%,var(--yellow) 50% 75%,var(--cream) 75%);border-radius:3px}
+.sub{color:var(--muted);margin:0 0 34px;font-family:var(--mono);font-size:.82rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:28px}
+.card{background:var(--panel);border:2px solid var(--line);border-radius:14px;box-shadow:5px 5px 0 var(--line);display:flex;flex-direction:column;overflow:hidden;transition:transform .12s,box-shadow .12s}
+.card:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--line)}
+.strip{display:flex;height:6px}.strip i{flex:1}
+.strip i:nth-child(1){background:var(--red)}.strip i:nth-child(2){background:var(--orange)}.strip i:nth-child(3){background:var(--yellow)}.strip i:nth-child(4){background:var(--cream)}
+.shot{margin:20px 20px 0;background:var(--screen);border:2px solid var(--line);border-radius:8px;aspect-ratio:1680/1000;overflow:hidden}
+.shot img{width:100%;height:100%;object-fit:cover;display:block}
+.ph{width:100%;height:100%;padding:7% 6%;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.pads{display:grid;grid-template-columns:repeat(16,1fr);gap:4px}
+.pads i{aspect-ratio:1/1.5;border-radius:3px;background:#3a372f}
+.pads i.g0.on{background:var(--red)}.pads i.g1.on{background:var(--orange)}.pads i.g2.on{background:var(--yellow)}.pads i.g3.on{background:var(--cream)}
+.ph .lbl{color:var(--led);font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-align:center;text-transform:uppercase}
+.patch{align-items:center}.patch svg{width:100%;height:100%}
+.body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:12px;flex:1}
+.body h3{margin:0;font-size:1.65rem;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;background:var(--yellow);color:#26231e;border-radius:99px}
+.body p{margin:0;color:var(--muted);font-size:.95rem}
+.body ul{list-style:none;margin:2px 0 0;padding:0;font-size:.9rem}
+.body li{padding-left:22px;position:relative;margin:5px 0}
+.body li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--led);box-shadow:0 0 5px var(--led)}
+.more{margin-top:auto;padding-top:10px;display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.76rem;color:var(--red)}
+.more a{border-bottom:2px solid transparent}.more a:hover{border-color:var(--orange)}
+.more .wip{color:var(--muted)}
+.about p{max-width:640px;color:var(--muted)}
+footer{border-top:2px solid var(--line);padding:24px 5vw;text-align:center;font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;color:var(--muted)}
+footer a{color:var(--red);font-weight:700}
+
+/* animace */
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 8px var(--led)}50%{opacity:.45;box-shadow:0 0 2px var(--led)}}
+@keyframes flow{to{stroke-dashoffset:-48}}
+@keyframes spin{from{transform:rotate(-8deg)}to{transform:rotate(0)}}
+.stripes i{transform-origin:left;animation:grow .8s cubic-bezier(.2,.8,.2,1) both}
+.stripes i:nth-child(2){animation-delay:.1s}.stripes i:nth-child(3){animation-delay:.2s}.stripes i:nth-child(4){animation-delay:.3s}
+.hero>*{animation:up .8s cubic-bezier(.2,.8,.2,1) both}
+.hero>:nth-child(2){animation-delay:.12s}.hero>:nth-child(3){animation-delay:.24s}.hero>:nth-child(4){animation-delay:.36s}
+.led::before{animation:pulse 2.2s ease-in-out infinite}
+.hero{background:radial-gradient(ellipse at 50% 0%,rgba(238,123,31,.16),transparent 60%)}
+header{transition:box-shadow .25s,padding .25s}
+header.sc{box-shadow:0 4px 18px rgba(0,0,0,.18);padding-top:8px;padding-bottom:8px}
+.logo img{transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.logo:hover img{transform:rotate(360deg)}
+.btn{transition:transform .12s,box-shadow .12s,filter .2s}
+.btn:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 6px 0 var(--line)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+h2::after{transform-origin:left;transform:scaleX(0);transition:transform 1s .2s cubic-bezier(.2,.8,.2,1)}
+h2.in::after{transform:none}
+.card{transition:transform .2s,box-shadow .2s,opacity .7s,transform .7s}
+.card.in:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--line);transition:transform .15s,box-shadow .15s}
+.shot img{transition:transform .6s}.card:hover .shot img{transform:scale(1.04)}
+.pads i{transition:filter .1s,transform .1s,background .1s}
+.pads i.cur{filter:brightness(1.6);transform:translateY(-3px)}
+.pads i:not(.on).cur{background:#6a655a}
+.cab path{stroke-dasharray:14 10;animation:flow 1.4s linear infinite}
+.cab path:nth-child(2){animation-duration:1.9s}.cab path:nth-child(3){animation-duration:2.4s;animation-direction:reverse}
+.soon{border:2px dashed var(--muted);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:40px 24px;text-align:center;color:var(--muted);min-height:260px;font-family:var(--mono);font-size:.85rem}
+.soon b{font-family:var(--head);font-size:1.4rem;color:var(--ink)}
+.soon .led{color:var(--muted)}
+.lang button{transition:background .2s,color .2s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,h2::after{opacity:1;transform:none}}
+@media (max-width:560px){nav a{margin-right:12px;font-size:.7rem}.logo span{display:none}}
+</style>
+</head>
+<body>
+<div class="stripes"><i></i><i></i><i></i><i></i></div>
+<header>
+  <a href="#top" class="logo" id="logo"></a>
+  <div class="right">
+    <nav><a href="#plugins" data-i="nav1"></a><a href="#about" data-i="nav2"></a><a href="https://github.com/JXMP-Audio/PluginCollection">GitHub</a></nav>
+    <div class="lang"><button data-l="cs">CZ</button><button data-l="en">EN</button></div>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <span class="led" data-i="badge"></span>
+  <h1 data-i="h1" data-html></h1>
+  <p data-i="lead"></p>
+  <a href="#plugins" class="btn" data-i="cta"></a>
+</div>
+
+<section id="plugins">
+  <h2 data-i="h2"></h2>
+  <p class="sub" data-i="sub"></p>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="about" id="about">
+  <h2 data-i="h3"></h2>
+  <p data-i="about"></p>
+</section>
+
+<footer>© 2026 JXMP Audio · <a href="https://github.com/JXMP-Audio">github.com/JXMP-Audio</a><br><span data-i="tm"></span></footer>
+<div class="stripes"><i></i><i></i><i></i><i></i></div>
+
+<script>
+/* ==== LOGO: cesta k obrázku vedle stránky ==== */
+var LOGO="jxmp-audio-logo-warm.png";
+/* ==== PLUGINY: image = obrázek (screenshoty TR808 jsou v jeho repu, docs/screenshots/),
+   link = repozitář (prázdný = zatím neveřejný), download = stránka ke stažení ==== */
+var T={
+cs:{nav1:"Plugin Collection",nav2:"O nás",badge:"Audio pluginy",h1:"Zvuk, který<br>si <em>postavíš sám</em>",
+ lead:"JXMP Audio vyrábí pluginy pro hudebníky a producenty. Poctivé nástroje se starou duší, které se dobře hrají a skvěle znějí.",
+ cta:"Plugin Collection ▸",h2:"Plugin Collection",sub:"// naše pluginy na jednom místě, další přibývají",h3:"O nás",
+ about:"Jsme malý tým, který staví vlastní audio nástroje od základu. Chceme, aby byly rychlé, přehledné a inspirativní. Naše pluginy vznikají otevřeně na GitHubu.",
+ more:"GitHub ▸",dl:"Stáhnout ▸",wip:"Ve vývoji",
+ tm:"TR-808 a Roland jsou ochranné známky společnosti Roland Corporation. JXMP Audio s ní není nijak spojeno.",shot:"Náhled brzy",soon1:"Ve výrobě",soon2:"Další pluginy",soon3:"Brzy přibude víc nástrojů."},
+en:{nav1:"Plugin Collection",nav2:"About",badge:"Audio plugins",h1:"Sound you<br><em>build yourself</em>",
+ lead:"JXMP Audio makes plugins for musicians and producers. Honest tools with an old soul that feel great to play and sound even better.",
+ cta:"Plugin Collection ▸",h2:"Plugin Collection",sub:"// all our plugins in one place, more on the way",h3:"About us",
+ about:"We are a small team building our own audio tools from the ground up. We want them fast, clear and inspiring. Our plugins are developed in the open on GitHub.",
+ more:"GitHub ▸",dl:"Download ▸",wip:"In development",
+ tm:"TR-808 and Roland are trademarks of Roland Corporation. JXMP Audio is not affiliated with Roland.",shot:"Preview coming soon",soon1:"In the works",soon2:"More plugins",soon3:"More tools are on the way."}};
+var PLUGINS=[
+ {name:"TR808",type:"drums",image:"https://raw.githubusercontent.com/JXMP-Audio/TR808/main/docs/screenshots/front-panel.png",
+  link:"https://github.com/JXMP-Audio/TR808",download:"https://github.com/JXMP-Audio/TR808/releases/latest",
+  cs:{tag:"Bicí automat",desc:"Rhythm Composer JX-808: věrná rekreace legendární TR-808. Jedenáct analogově modelovaných zvuků podle servisního manuálu a panel, který vypadá i funguje jako originál, bez jediného menu.",
+   feats:["Původní sekvencer: 16 rytmů A/B, rhythm tracky, intro a fill-in","Sync s DAW, MIDI programování a 808 basa přes MIDI","Přetažení patternu nebo tracku do DAW jako MIDI","VST3 a standalone pro Windows a Linux, zdarma"]},
+  en:{tag:"Drum machine",desc:"Rhythm Composer JX-808: a faithful recreation of the legendary TR-808. Eleven analogue-modelled voices built from the service notes, and a panel that looks and works like the original, without a single menu.",
+   feats:["The original sequencer: 16 rhythms A/B, rhythm tracks, intro and fill-in","DAW sync, MIDI programming and an 808 bass over MIDI","Drag a pattern or track into your DAW as MIDI","VST3 and standalone for Windows and Linux, free"]}},
+ {name:"PatchCore",type:"patch",image:"",link:"",download:"",
+  cs:{tag:"Modulární engine",desc:"Modulární jádro pro stavbu syntezátorů a zvukových efektů. Propojuj moduly jako kabely na skutečném modulárním systému a vytvoř si vlastní zvuk.",
+   feats:["Skládání zvuku z modulů","Flexibilní routing signálu","Základ pro vlastní nástroje a efekty"]},
+  en:{tag:"Modular engine",desc:"A modular core for building synthesizers and audio effects. Connect modules like cables on a real modular system and shape a sound of your own.",
+   feats:["Build sounds from modules","Flexible signal routing","A base for your own instruments and effects"]}}
+];
+function padRow(s){return s.split("").map(function(c,i){return '<i class="g'+Math.floor(i/4)+(c==="1"?' on':'')+'"></i>'}).join("")}
+function placeholder(p,t){
+ if(p.type==="drums")return '<div class="ph"><div class="pads">'+padRow("1000100010101000")+'</div><div class="pads">'+padRow("0010001001000100")+'</div><div class="lbl">'+t.shot+'</div></div>';
+ return '<div class="ph patch"><svg viewBox="0 0 320 160" fill="none"><g class="cab" stroke-width="5" stroke-linecap="round"><path d="M60 110 C100 40 160 40 160 90" stroke="#d8372a"/><path d="M160 90 C170 150 250 150 260 80" stroke="#f2c230"/><path d="M60 110 C90 150 200 20 260 80" stroke="#ee7b1f"/></g><g fill="#26231e" stroke="#f6efdc" stroke-width="3"><circle cx="60" cy="110" r="14"/><circle cx="160" cy="90" r="14"/><circle cx="260" cy="80" r="14"/></g><g fill="#ff5a3c"><circle cx="60" cy="110" r="4"/><circle cx="160" cy="90" r="4"/><circle cx="260" cy="80" r="4"/></g><text x="160" y="152" fill="#ff5a3c" font-size="9" text-anchor="middle" letter-spacing="2" font-family="monospace">'+t.shot.toUpperCase()+'</text></svg></div>';
+}
+function render(l){
+ var t=T[l];document.documentElement.lang=l;
+ document.querySelectorAll("[data-i]").forEach(function(e){var v=t[e.dataset.i];if(e.hasAttribute("data-html"))e.innerHTML=v;else e.textContent=v});
+ document.querySelectorAll(".lang button").forEach(function(b){b.classList.toggle("act",b.dataset.l===l)});
+ var g=document.getElementById("grid");g.innerHTML="";
+ PLUGINS.forEach(function(p){
+  var c=p[l],shot=p.image?'<img src="'+p.image+'" alt="'+p.name+'" loading="lazy">':placeholder(p,t);
+  var a=document.createElement("div");a.className="card";
+  var links=p.link?'<a href="'+p.link+'" target="_blank" rel="noopener">'+t.more+'</a>':'<span class="wip">'+t.wip+'</span>';
+  if(p.download)links+='<a href="'+p.download+'" target="_blank" rel="noopener">'+t.dl+'</a>';
+  a.innerHTML='<div class="strip"><i></i><i></i><i></i><i></i></div><div class="shot">'+shot+'</div><div class="body"><h3>'+p.name+'<span class="tag">'+c.tag+'</span></h3><p>'+c.desc+'</p><ul>'+c.feats.map(function(f){return "<li>"+f+"</li>"}).join("")+'</ul><div class="more">'+links+'</div></div>';
+  var im=a.querySelector(".shot img");
+  if(im)im.onerror=function(){im.parentNode.innerHTML=placeholder(p,t)};
+  a.classList.add("rv");a.style.transitionDelay=(g.children.length*0.12)+"s";
+  g.appendChild(a);
+ });
+ var so=document.createElement("div");so.className="soon rv";so.style.transitionDelay=(g.children.length*0.12)+"s";
+ so.innerHTML='<span class="led">'+t.soon1+'</span><b>'+t.soon2+'</b><span>'+t.soon3+'</span>';
+ g.appendChild(so);
+ reveal();
+ try{localStorage.setItem("jxmp-lang",l)}catch(e){}
+}
+document.getElementById("logo").innerHTML=LOGO?'<img src="'+LOGO+'" alt="JXMP Audio"><span>JXMP<b>·</b>AUDIO</span>':'JXMP<b>·</b>AUDIO';
+document.querySelectorAll(".lang button").forEach(function(b){b.onclick=function(){render(b.dataset.l)}});
+var start="";try{start=localStorage.getItem("jxmp-lang")||""}catch(e){}
+if(!T[start])start=(navigator.language||"").toLowerCase().indexOf("cs")===0||(navigator.language||"").toLowerCase().indexOf("sk")===0?"cs":"en";
+var io=("IntersectionObserver" in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var el=e.target;el.classList.add("in");io.unobserve(el);setTimeout(function(){el.style.transitionDelay=""},1400)}})},{threshold:.12}):null;
+function reveal(){document.querySelectorAll(".rv,h2,.about p,.sub").forEach(function(e){if(!e.classList.contains("rv")&&!/^H2$/.test(e.tagName))e.classList.add("rv");if(io){if(!e.classList.contains("in"))io.observe(e)}else e.classList.add("in")})}
+var step=0;
+setInterval(function(){step=(step+1)%16;document.querySelectorAll(".pads").forEach(function(r){var k=r.children;for(var i=0;i<k.length;i++)k[i].classList.toggle("cur",i===step)})},190);
+var hd=document.querySelector("header");
+addEventListener("scroll",function(){hd.classList.toggle("sc",scrollY>20)},{passive:true});
+render(start);
+</script>
+</body>
+</html>
