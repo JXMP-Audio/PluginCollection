@@ -32,7 +32,21 @@ cd TR808 && ./build.sh standalone                       # or: vst3, all
 
 `hise-patches/` holds our changes to HISE. The patch `0001-resizable-frontend.patch` lets the
 plugin and standalone windows be resized freely: the interface keeps its aspect ratio, scales to
-the window, and remembers the size. Re-run `./setup-hise.sh` after adding a patch. It skips patches
+the window, and remembers the size. The patches:
+
+| Patch | What it does |
+|---|---|
+| 0001 resizable-frontend | Plugin and standalone windows resize freely and scale the interface |
+| 0002 hardcoded-fx-state-after-set-effect | Presets and DAW sessions keep the node state (parameters, pattern memory) |
+| 0003 midi-out-for-hardcoded-nodes | Hardcoded nodes can send MIDI to the plugin output |
+| 0004 juce-no-xsettings-manager | JUCE no longer crashes hosts on window managers without XSETTINGS (Hyprland, Sway, i3) |
+
+Every plugin repo with a release workflow keeps a copy in `.github/hise-patches/`.
+
+`./build-portable.sh <Plugin> VST3` compiles an exported project (`EXPORT_ONLY=1 ./build.sh vst3`) in a
+Fedora 43 container with podman, so the binary also runs on a host with an older glibc than the dev container.
+
+Re-run `./setup-hise.sh` after adding a patch. It skips patches
 that are already applied.
 
 In the HISE editor, set **File → Settings → Compiler → HISE Path** to `HISE/source`.
