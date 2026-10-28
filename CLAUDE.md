@@ -6,7 +6,7 @@ Umbrella repo for JXMP Audio VST/instrument plugins. Each plugin is a separate G
 ## Rules
 
 - **Always keep the collection on the newest plugin versions.** Whenever work is committed and
-  pushed in a plugin repo (e.g. `TR808/`), immediately bump its submodule pointer here: run
+  pushed in a plugin repo (e.g. `JX808/`), immediately bump its submodule pointer here: run
   `./update-plugins.sh` (or `git submodule update --remote <Name>`), commit in this repo, and push.
   Push the plugin repo first, so the pointer never references a commit missing on GitHub.
   Before starting work, run `./update-plugins.sh` to pick up changes made elsewhere.

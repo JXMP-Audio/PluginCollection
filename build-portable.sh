@@ -3,14 +3,14 @@
 # also runs on systems with an older glibc than the build machine (e.g. Fedora 44 host vs the
 # Arch dev container). The project must be exported first: EXPORT_ONLY=1 ./build.sh vst3
 #
-#   ./build-portable.sh TR808 VST3        -> TR808/build/VST3-portable/.../build/TR808.vst3
+#   ./build-portable.sh JX808 VST3        -> JX808/build/VST3-portable/.../build/JX808.vst3
 #
 # Runs on the host (or anywhere with podman). Override the image with IMAGE=... and the number of
 # compile jobs with JOBS=... (default: half the cores; HISE units need about 1.5 GB each).
 set -euo pipefail
 cd "$(dirname "$0")"
 ROOT="$(pwd)"
-PLUGIN="${1:?plugin folder, e.g. TR808}"
+PLUGIN="${1:?plugin folder, e.g. JX808}"
 TARGET="${2:-VST3}"
 IMAGE="${IMAGE:-quay.io/fedora/fedora:43}"
 JOBS="${JOBS:-$(( ($(nproc) + 1) / 2 ))}"

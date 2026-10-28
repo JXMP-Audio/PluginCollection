@@ -1,4 +1,4 @@
-[submodule "TR808"]
-	path = TR808
-	url = git@github.com:JXMP-Audio/TR808.git
+[submodule "JX808"]
+	path = JX808
+	url = git@github.com:JXMP-Audio/JX808.git
 	branch = main
