@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>JXMP Audio – Plugin Collection</title>
-<meta name="description" content="JXMP Audio: audio plugins for musicians and producers. TR808, a TR-808 Rhythm Composer recreation as VST3 and standalone for Windows and Linux.">
+<meta name="description" content="JXMP Audio: audio plugins for musicians and producers. JX808, an analogue-modelled vintage drum machine as VST3 and standalone for Windows and Linux.">
 <link rel="icon" href="jxmp-audio-logo-warm.png">
 <meta property="og:title" content="JXMP Audio – Plugin Collection">
 <meta property="og:description" content="Audio plugins for musicians and producers.">
@@ -143,7 +143,7 @@ h2.in::after{transform:none}
 <script>
 /* ==== LOGO: cesta k obrázku vedle stránky ==== */
 var LOGO="jxmp-audio-logo-warm.png";
-/* ==== PLUGINY: image = obrázek (screenshoty TR808 jsou v jeho repu, docs/screenshots/),
+/* ==== PLUGINY: image = obrázek (screenshoty JX808 jsou v jeho repu, docs/screenshots/),
    link = repozitář (prázdný = zatím neveřejný), download = stránka ke stažení ==== */
 var T={
 cs:{nav1:"Plugin Collection",nav2:"O nás",badge:"Audio pluginy",h1:"Zvuk, který<br>si <em>postavíš sám</em>",
@@ -151,20 +151,20 @@ cs:{nav1:"Plugin Collection",nav2:"O nás",badge:"Audio pluginy",h1:"Zvuk, kter�
  cta:"Plugin Collection ▸",h2:"Plugin Collection",sub:"// naše pluginy na jednom místě, další přibývají",h3:"O nás",
  about:"Jsme malý tým, který staví vlastní audio nástroje od základu. Chceme, aby byly rychlé, přehledné a inspirativní. Naše pluginy vznikají otevřeně na GitHubu.",
  more:"GitHub ▸",dl:"Stáhnout ▸",wip:"Ve vývoji",
- tm:"TR-808 a Roland jsou ochranné známky společnosti Roland Corporation. JXMP Audio s ní není nijak spojeno.",shot:"Náhled brzy",soon1:"Ve výrobě",soon2:"Další pluginy",soon3:"Brzy přibude víc nástrojů."},
+ tm:"Všechny pluginy JXMP Audio jsou původní produkty, bez cizích ochranných známek a log.",shot:"Náhled brzy",soon1:"Ve výrobě",soon2:"Další pluginy",soon3:"Brzy přibude víc nástrojů."},
 en:{nav1:"Plugin Collection",nav2:"About",badge:"Audio plugins",h1:"Sound you<br><em>build yourself</em>",
  lead:"JXMP Audio makes plugins for musicians and producers. Honest tools with an old soul that feel great to play and sound even better.",
  cta:"Plugin Collection ▸",h2:"Plugin Collection",sub:"// all our plugins in one place, more on the way",h3:"About us",
  about:"We are a small team building our own audio tools from the ground up. We want them fast, clear and inspiring. Our plugins are developed in the open on GitHub.",
  more:"GitHub ▸",dl:"Download ▸",wip:"In development",
- tm:"TR-808 and Roland are trademarks of Roland Corporation. JXMP Audio is not affiliated with Roland.",shot:"Preview coming soon",soon1:"In the works",soon2:"More plugins",soon3:"More tools are on the way."}};
+ tm:"All JXMP Audio plugins are original products, free of third-party trademarks and logos.",shot:"Preview coming soon",soon1:"In the works",soon2:"More plugins",soon3:"More tools are on the way."}};
 var PLUGINS=[
- {name:"TR808",type:"drums",image:"https://raw.githubusercontent.com/JXMP-Audio/TR808/main/docs/screenshots/front-panel.png",
+ {name:"JX808",type:"drums",image:"https://raw.githubusercontent.com/JXMP-Audio/TR808/main/docs/screenshots/front-panel.png",
   link:"https://github.com/JXMP-Audio/TR808",download:"https://github.com/JXMP-Audio/TR808/releases/latest",
-  cs:{tag:"Bicí automat",desc:"Rhythm Composer JX-808: věrná rekreace legendární TR-808. Jedenáct analogově modelovaných zvuků podle servisního manuálu a panel, který vypadá i funguje jako originál, bez jediného menu.",
-   feats:["Původní sekvencer: 16 rytmů A/B, rhythm tracky, intro a fill-in","Sync s DAW, MIDI programování a 808 basa přes MIDI","Přetažení patternu nebo tracku do DAW jako MIDI","VST3 a standalone pro Windows a Linux, zdarma"]},
-  en:{tag:"Drum machine",desc:"Rhythm Composer JX-808: a faithful recreation of the legendary TR-808. Eleven analogue-modelled voices built from the service notes, and a panel that looks and works like the original, without a single menu.",
-   feats:["The original sequencer: 16 rhythms A/B, rhythm tracks, intro and fill-in","DAW sync, MIDI programming and an 808 bass over MIDI","Drag a pattern or track into your DAW as MIDI","VST3 and standalone for Windows and Linux, free"]}},
+  cs:{tag:"Bicí automat",desc:"Rhythm Machine JX-808: analogově modelovaný bicí automat ve stylu klasických strojů z počátku osmdesátek. Jedenáct zvuků modelovaných podle analogových obvodů a panel, který vypadá i funguje jako hardware, bez jediného menu.",
+   feats:["Krokový sekvencer: 16 rytmů A/B, rhythm tracky, intro a fill-in","Sync s DAW, MIDI programování a 808 basa přes MIDI","Přetažení patternu nebo tracku do DAW jako MIDI","VST3 a standalone pro Windows a Linux, zdarma"]},
+  en:{tag:"Drum machine",desc:"Rhythm Machine JX-808: an analogue-modelled drum machine in the style of the classic early-eighties units. Eleven voices modelled on analogue circuits, and a panel that looks and works like hardware, without a single menu.",
+   feats:["A step sequencer: 16 rhythms A/B, rhythm tracks, intro and fill-in","DAW sync, MIDI programming and an 808 bass over MIDI","Drag a pattern or track into your DAW as MIDI","VST3 and standalone for Windows and Linux, free"]}},
  {name:"PatchCore",type:"patch",image:"",link:"",download:"",
   cs:{tag:"Modulární engine",desc:"Modulární jádro pro stavbu syntezátorů a zvukových efektů. Propojuj moduly jako kabely na skutečném modulárním systému a vytvoř si vlastní zvuk.",
    feats:["Skládání zvuku z modulů","Flexibilní routing signálu","Základ pro vlastní nástroje a efekty"]},

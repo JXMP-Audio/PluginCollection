@@ -7,18 +7,18 @@ repository and is included here as a git submodule, always pointing at its lates
 
 | Plugin | Type | Description | Repository |
 | --- | --- | --- | --- |
-| [TR808](TR808/) | Instrument (HISE) | TR-808 Rhythm Composer recreation (JX-808): original panel, DAW sync, MIDI programming and drag & drop, preset cartridges, 808-bass pitch mode. | [JXMP-Audio/TR808](https://github.com/JXMP-Audio/TR808) |
+| [JX808](TR808/) | Instrument (HISE) | Rhythm Machine JX-808, an analogue-modelled vintage drum machine: hardware-style panel, DAW sync, MIDI programming and drag & drop, preset cartridges, 808-bass pitch mode. | [JXMP-Audio/TR808](https://github.com/JXMP-Audio/TR808) |
 
 ## What is in this folder
 
 | Path | In git | What it is |
 |---|---|---|
-| `TR808/` | submodule | the TR808 plugin repository ([its README](TR808/README.md)) |
+| `TR808/` | submodule | the JX808 plugin repository ([its README](TR808/README.md)) |
 | `hise-patches/` | yes | our patches to HISE 4.1.0, applied by `setup-hise.sh` |
 | `setup-hise.sh` | yes | downloads / unpacks HISE into `HISE/` and applies the patches |
 | `build-portable.sh` | yes | compiles an exported plugin in a Fedora 43 container (binary for older glibc) |
 | `update-plugins.sh` | yes | bumps every submodule to the newest commit of its `main` |
-| `web/` | yes | the JXMP Audio website: `index.html` (one page, CZ / EN) and the logo. Plugin cards are the `PLUGINS` list in the script; TR808's picture comes from `TR808/docs/screenshots/` on GitHub |
+| `web/` | yes | the JXMP Audio website: `index.html` (one page, CZ / EN) and the logo. Plugin cards are the `PLUGINS` list in the script; JX808's picture comes from `TR808/docs/screenshots/` on GitHub |
 | `CLAUDE.md` | yes | working rules for this repository |
 | `HISE/` | no (ignored) | local HISE: `HISE Standalone` (export tool, 40 MB) and `source/` (HISE + JUCE source with the patches, needed to compile plugins). Recreate with `./setup-hise.sh` |
 | `<Plugin>/build/` | no (ignored) | that plugin's build output, see its README |
