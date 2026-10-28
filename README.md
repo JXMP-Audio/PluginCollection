@@ -8,12 +8,14 @@ repository and is included here as a git submodule, always pointing at its lates
 | Plugin | Type | Description | Repository |
 | --- | --- | --- | --- |
 | [JX808](JX808/) | Instrument (HISE) | Rhythm Machine JX-808, an analogue-modelled vintage drum machine: hardware-style panel, DAW sync, MIDI programming and drag & drop, preset cartridges, 808-bass pitch mode. | [JXMP-Audio/JX808](https://github.com/JXMP-Audio/JX808) |
+| [PatchCore](PatchCore/) | Modular host (Cardinal fork) | A virtual modular synthesizer plugin based on DISTRHO Cardinal, with a new hardware-rack workspace: rack frame, docked browser, transport, front/back flip for patching. | [JXMP-Audio/PatchCore](https://github.com/JXMP-Audio/PatchCore) |
 
 ## What is in this folder
 
 | Path | In git | What it is |
 |---|---|---|
 | `JX808/` | submodule | the JX808 plugin repository ([its README](JX808/README.md)) |
+| `PatchCore/` | submodule | the PatchCore repository, a DISTRHO Cardinal fork with its own nested submodules (Rack, DPF, Carla, third-party modules). Clone with `--recurse-submodules` ([its README](PatchCore/README.md)) |
 | `hise-patches/` | yes | our patches to HISE 4.1.0, applied by `setup-hise.sh` |
 | `setup-hise.sh` | yes | downloads / unpacks HISE into `HISE/` and applies the patches |
 | `build-portable.sh` | yes | compiles an exported plugin in a Fedora 43 container (binary for older glibc) |
@@ -36,7 +38,7 @@ git clone --recurse-submodules git@github.com:JXMP-Audio/PluginCollection.git
 Already cloned without submodules:
 
 ```sh
-git submodule update --init
+git submodule update --init --recursive
 ```
 
 ## Building plugins (HISE)

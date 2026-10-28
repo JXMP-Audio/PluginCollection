@@ -2,3 +2,7 @@
 	path = JX808
 	url = git@github.com:JXMP-Audio/JX808.git
 	branch = main
+[submodule "PatchCore"]
+	path = PatchCore
+	url = git@github.com:JXMP-Audio/PatchCore.git
+	branch = main
