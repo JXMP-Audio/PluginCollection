@@ -80,7 +80,8 @@ In the HISE editor, set **File → Settings → Compiler → HISE Path** to `HIS
 
 Right-click on the rack (or Enter) opens the module finder: type to search, `@brand` and
 `#purpose` filter (e.g. `vco@jxmp`). `Tab` turns the rack around to patch the JXMP modules
-on the back. The mouse wheel turns knobs.
+on the back. The mouse wheel turns knobs. Right-click on a module selects it (then `Delete`
+removes it), Ctrl+right-click opens its menu.
 
 ## Keeping plugins up to date
 
