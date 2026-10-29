@@ -8,7 +8,7 @@ repository and is included here as a git submodule, always pointing at its lates
 | Plugin | Type | Description | Repository |
 | --- | --- | --- | --- |
 | [JX808](JX808/) | Instrument (HISE) | Rhythm Machine JX-808, an analogue-modelled vintage drum machine: hardware-style panel, DAW sync, MIDI programming and drag & drop, preset cartridges, 808-bass pitch mode. | [JXMP-Audio/JX808](https://github.com/JXMP-Audio/JX808) |
-| [PatchCore](PatchCore/) | Modular host (Cardinal fork) | A virtual modular synthesizer plugin based on DISTRHO Cardinal, with a new hardware-rack workspace: rack frame, docked browser, transport, front/back flip for patching. | [JXMP-Audio/PatchCore](https://github.com/JXMP-Audio/PatchCore) |
+| [PatchCore](PatchCore/) | Modular host (Cardinal fork) | A modular synthesizer plugin based on DISTRHO Cardinal, laid out like a hardware rack: basic modules patch on the front, JXMP modules (VCO, VCF, VCA, ADSR, Patchbay) on the back. | [JXMP-Audio/PatchCore](https://github.com/JXMP-Audio/PatchCore) |
 
 ## What is in this folder
 

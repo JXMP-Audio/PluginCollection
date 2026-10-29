@@ -165,11 +165,11 @@ var PLUGINS=[
    feats:["Krokový sekvencer: 16 rytmů A/B, rhythm tracky, intro a fill-in","Sync s DAW, MIDI programování a 808 basa přes MIDI","Přetažení patternu nebo tracku do DAW jako MIDI","VST3 a standalone pro Windows a Linux, zdarma"]},
   en:{tag:"Drum machine",desc:"Rhythm Machine JX-808: an analogue-modelled drum machine in the style of the classic early-eighties units. Eleven voices modelled on analogue circuits, and a panel that looks and works like hardware, without a single menu.",
    feats:["A step sequencer: 16 rhythms A/B, rhythm tracks, intro and fill-in","DAW sync, MIDI programming and an 808 bass over MIDI","Drag a pattern or track into your DAW as MIDI","VST3 and standalone for Windows and Linux, free"]}},
- {name:"PatchCore",type:"patch",image:"",link:"https://github.com/JXMP-Audio/PatchCore",download:"",
-  cs:{tag:"Modulární engine",desc:"Modulární jádro pro stavbu syntezátorů a zvukových efektů. Propojuj moduly jako kabely na skutečném modulárním systému a vytvoř si vlastní zvuk.",
-   feats:["Skládání zvuku z modulů","Flexibilní routing signálu","Základ pro vlastní nástroje a efekty"]},
-  en:{tag:"Modular engine",desc:"A modular core for building synthesizers and audio effects. Connect modules like cables on a real modular system and shape a sound of your own.",
-   feats:["Build sounds from modules","Flexible signal routing","A base for your own instruments and effects"]}}
+ {name:"PatchCore",type:"patch",image:"https://raw.githubusercontent.com/JXMP-Audio/PatchCore/main/docs/screenshots/patchcore-rack.png",link:"https://github.com/JXMP-Audio/PatchCore",download:"",
+  cs:{tag:"Modulární rack",desc:"Modulární syntezátor jako skutečný studiový rack. Základní moduly se propojují zepředu, naše moduly JXMP zezadu. Klávesou Tab rack otočíš a průchodka Patchbay propojí obě strany.",
+   feats:["Rack se zadní stranou pro kabely (Tab)","Vlastní moduly JXMP: oscilátor, filtr, VCA, obálka","Patchbay 4 / 8 / 16: průchodka mezi předkem a zadkem","Vychází z volného projektu Cardinal, plugin i standalone"]},
+  en:{tag:"Modular rack",desc:"A modular synthesizer that works like a real studio rack. Basic modules patch on the front, our JXMP modules on the back. Press Tab to turn the rack around, and the Patchbay links both sides.",
+   feats:["A rack with a back side for cables (Tab)","Our own JXMP modules: oscillator, filter, VCA, envelope","Patchbay 4 / 8 / 16: a pass-through between front and back","Based on the open-source Cardinal project, plugin and standalone"]}}
 ];
 function padRow(s){return s.split("").map(function(c,i){return '<i class="g'+Math.floor(i/4)+(c==="1"?' on':'')+'"></i>'}).join("")}
 function placeholder(p,t){
