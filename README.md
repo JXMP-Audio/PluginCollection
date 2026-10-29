@@ -82,8 +82,8 @@ PatchCore/run-patchcore.sh --install   # add PatchCore to the application menu
 
 Right-click on the rack (or Enter) opens the module finder: type to search, `@brand` and
 `#purpose` filter (e.g. `vco@jxmp`). `Tab` turns the rack around to patch the JXMP modules
-on the back. The mouse wheel turns knobs. A click on a module selects it (then `Delete` removes
-it), right-click selects it and opens its menu.
+on the back. The mouse wheel turns knobs. Shift+click selects a module (then `Delete` removes
+it), Shift+drag moves it, Shift+right-click opens its menu.
 
 ## Keeping plugins up to date
 
