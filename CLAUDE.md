@@ -14,5 +14,8 @@ Umbrella repo for JXMP Audio VST/instrument plugins. Each plugin is a separate G
   `git submodule add -b main <url> <Name>` and get a row in the README.md plugin table.
 - Keep README.md's plugin table in sync with the submodules (name, type, short description, repo link).
 - Plugin code changes belong in the plugin repo, never in this repo.
+- Keep a handoff file per plugin under active work (PatchCore: `PatchCore/research_docs/STATUS.md`: done /
+  in progress / next). Update, commit and push it before a session or usage limit ends; read it first when
+  resuming. Unfinished work lives on a pushed branch.
 - The website is `web/index.html` (static, CZ / EN). When a plugin is added or changes a lot, update its card in
   the `PLUGINS` list there. Plugin pictures come from the plugin repo (`docs/screenshots/`).
