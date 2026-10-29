@@ -19,6 +19,7 @@ repository and is included here as a git submodule, always pointing at its lates
 | `hise-patches/` | yes | our patches to HISE 4.1.0, applied by `setup-hise.sh` |
 | `setup-hise.sh` | yes | downloads / unpacks HISE into `HISE/` and applies the patches |
 | `build-portable.sh` | yes | compiles an exported plugin in a Fedora 43 container (binary for older glibc) |
+| `run-patchcore.sh` | yes | starts the PatchCore standalone (optionally with a patch) and connects its audio outputs to the default PipeWire output |
 | `update-plugins.sh` | yes | bumps every submodule to the newest commit of its `main` |
 | `web/` | yes | the JXMP Audio website: `index.html` (one page, CZ / EN) and the logo. Plugin cards are the `PLUGINS` list in the script; JX808's picture comes from `JX808/docs/screenshots/` on GitHub |
 | `CLAUDE.md` | yes | working rules for this repository |
