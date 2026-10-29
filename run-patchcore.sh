@@ -3,10 +3,14 @@
 # PipeWire/PulseAudio output. Under PipeWire the JACK client does not connect itself.
 #   ./run-patchcore.sh [patch.vcv]
 set -euo pipefail
+# Resolve the patch path before changing directory
+patch=""
+if [ -n "${1:-}" ]; then
+	patch="$(realpath -e "$1")" || { echo "Patch not found: $1" >&2; exit 1; }
+fi
 cd "$(dirname "$0")/PatchCore"
-patch="${1:-}"
 if [ -n "$patch" ]; then
-	PATCHCORE_DEV_PATCH="$(realpath "$patch")" ./bin/Cardinal &
+	PATCHCORE_DEV_PATCH="$patch" ./bin/Cardinal &
 else
 	./bin/Cardinal &
 fi
