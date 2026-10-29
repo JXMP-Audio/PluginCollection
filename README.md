@@ -19,7 +19,7 @@ repository and is included here as a git submodule, always pointing at its lates
 | `hise-patches/` | yes | our patches to HISE 4.1.0, applied by `setup-hise.sh` |
 | `setup-hise.sh` | yes | downloads / unpacks HISE into `HISE/` and applies the patches |
 | `build-portable.sh` | yes | compiles an exported plugin in a Fedora 43 container (binary for older glibc) |
-| `run-patchcore.sh` | yes | starts the PatchCore standalone (optionally with a patch) and connects its audio outputs to the default PipeWire output |
+| `run-patchcore.sh` | yes | PatchCore launcher: `./run-patchcore.sh [demo\|showcase\|patch.vcv]`, `--build` (fetch + build), `--install` (application menu). Connects the audio to the default PipeWire output |
 | `update-plugins.sh` | yes | bumps every submodule to the newest commit of its `main` |
 | `web/` | yes | the JXMP Audio website: `index.html` (one page, CZ / EN) and the logo. Plugin cards are the `PLUGINS` list in the script; JX808's picture comes from `JX808/docs/screenshots/` on GitHub |
 | `CLAUDE.md` | yes | working rules for this repository |
@@ -69,6 +69,18 @@ Re-run `./setup-hise.sh` after adding a patch. It skips patches
 that are already applied.
 
 In the HISE editor, set **File → Settings → Compiler → HISE Path** to `HISE/source`.
+
+## Playing with PatchCore
+
+```sh
+./run-patchcore.sh demo        # JXMP ambient patch (builds PatchCore first if needed)
+./run-patchcore.sh             # empty rack
+./run-patchcore.sh --install   # add PatchCore to the application menu
+```
+
+Right-click on the rack (or Enter) opens the module finder: type to search, `@brand` and
+`#purpose` filter (e.g. `vco@jxmp`). `Tab` turns the rack around to patch the JXMP modules
+on the back. The mouse wheel turns knobs.
 
 ## Keeping plugins up to date
 
