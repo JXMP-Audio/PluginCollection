@@ -1,2 +1,9 @@
 # local HISE (binary, later also the source checkout), not part of the collection
 /HISE/
+
+# Local tools and working rules (kept on disk, not part of the collection)
+/CLAUDE.md
+/build-portable.sh
+/setup-hise.sh
+/update-plugins.sh
+/hise-patches/
